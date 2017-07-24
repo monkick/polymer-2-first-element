@@ -22,7 +22,7 @@
     </style>
 
     <!-- shadow DOM goes here -->
-    <iron-icon icon="polymer"></iron-icon>
+      <iron-icon icon="[[toggleIcon]]"></iron-icon>
   </template>
 
   <script>
@@ -30,6 +30,21 @@
       static get is() {
         return 'icon-toggle';
       }
+
+        static get properties () {
+            return {
+                pressed   : {
+                    type              : Boolean,
+                    notify            : true,
+                    reflectToAttribute: true,
+                    value             : false
+                },
+                toggleIcon: {
+                    type: String
+                },
+            }
+        }
+
       constructor() {
         super();
       }
